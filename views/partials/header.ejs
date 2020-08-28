@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title><%= title %></title>
+</head>
+
+<body>
+    <nav>
+        <img src="/images/camera.svg">
+        <a href="/cocktails" <%- title === 'All Cocktails' ? 'class="active"' : '' %>>ALL COCKTAILS</a>
+        <a href="/alcohols" <%- title === 'Alcohol Types' ? 'class="active"' : '' %>ALCOHOL TYPES</a>
+        <a href="/ingredients" <%- title === 'ingredients' ? 'class="active"' : '' %>INGREDIENTS</a>
+        <a href="/glasses" <%- title === 'glasses' ? 'class="active"' : '' %>GLASSES</a>
+        <a href="/cocktails/new" <%- title === 'Add Cocktail' ? 'class="active"' : '' %>>ADD COCKTAIL</a>
+    </nav>
+    <main>
+        <h1><%= title %></h1>
