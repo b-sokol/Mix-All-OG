@@ -4,9 +4,9 @@ const userSchema = new mongoose.Schema(
   {
     name: String,
     username: String,
-    favorites: [cocktailsSchema],
-    comments: [commentsSchema],
-    photos: [photosSchema],
+    // favorites: [cocktailsSchema],
+    // comments: [commentsSchema],
+    // photos: [photosSchema],
     avatar: String,
     googleId: String,
   },
@@ -14,3 +14,5 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+module.exports = mongoose.model('User', userSchema);
