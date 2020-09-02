@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+<h4>List of all Cocktails</h4>
+<table>
+    <thead>
+        <tr>
+            <th>Cocktail</th>
+            <th>Link</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% cocktails.forEach((c) => { %>
+        <tr>
+            <td><%= c.name %></td>
+            <td><a href="/cocktails/<%= c._id %>"></a>INFO</td>
+        </tr>
+        <% }); %>
+    </tbody>
+</table>
+<%- include('../partials/footer') %>

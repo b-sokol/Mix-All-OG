@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const userSchema = new mongoose.Schema(
   {
     name: String,
     username: String,
-    // favorites: [cocktailsSchema],
+    favorites: [{type: Schema.Types.ObjectId, ref: 'Cocktail' }],
     // comments: [commentsSchema],
-    // photos: [photosSchema],
     avatar: String,
     googleId: String,
   },
