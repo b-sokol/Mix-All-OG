@@ -14,6 +14,8 @@
 
 ![Screenshot 5](./images/screenshots/UserHomePage.png)
 
+![Screenshot 6](./images/screenshots/AllCocktailsPage.png)
+
 ## Technologies Used
 
 - MongoDB
@@ -34,4 +36,5 @@
 - Add User Favorites
 - List all comments created by a user
 - Search feature for cocktails, ingredients, glass types
--Add more CRUD functionality to comments
+- Add more CRUD functionality to comments
+- Add ratings system to cocktails
