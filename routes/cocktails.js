@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const cocktailsCtrl = require('../controllers/cocktails');
 
-router.get('/', isLoggedIn, cocktailsCtrl.index);
+router.get('/', cocktailsCtrl.index);
 router.get('/new', isLoggedIn, cocktailsCtrl.new);
 router.get('/:id', cocktailsCtrl.show);
 router.post('/', isLoggedIn, cocktailsCtrl.create);
