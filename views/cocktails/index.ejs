@@ -5,13 +5,15 @@
         <tr>
             <th>Cocktail</th>
             <th>Link</th>
+            <th>Favorite</th>
         </tr>
     </thead>
     <tbody>
         <% cocktails.forEach((c) => { %>
         <tr>
             <td><%= c.name %></td>
-            <td><a href="/cocktails/<%= c._id %>"></a>INFO</td>
+            <td><a href="/cocktails/<%= c._id %>">INFO</a></td>
+            <td><a href=""></a>❤️</td>
         </tr>
         <% }); %>
     </tbody>

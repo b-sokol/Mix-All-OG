@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+<form action="/cocktails/<%=cocktail._id%>?_method=PUT" method="POST">
+    <label>Cocktail Name:
+        <input type="text" name="name" value="<%=cocktail.name%>">
+    </label><br>
+    <label>Proper Glass:
+        <input type="text" name="glassType" value="<%=cocktail.glassType%>">
+    </label><br>
+    <label>Ingredients:
+        <input type="text" name="ingredients" value="<%=cocktail.ingredients%>">
+        Measurements:
+        <input type="text" name="measurements" value="<%=cocktail.measurements%>">
+    </label><br>
+    <label>Instructions:
+        <input type="text" name="instructions" value="<%=cocktail.instructions%>">
+    </label><br>
+    <label>Photo Link:
+        <input type="text" name="photo" value="<%=cocktail.photo%>">
+    </label><br>
+    <input type="submit" value="Edit Cocktail">
+</form>
+<%- include('../partials/footer') %>

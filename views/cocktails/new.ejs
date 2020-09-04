@@ -1,3 +1,23 @@
 <%- include('../partials/header') %>
+<form action="/cocktails" method="POST">
+    <label>Cocktail Name:
+        <input type="text" name="name">
+    </label><br>
+    <label>Proper Glass:
+        <input type="text" name="glassType">
+    </label><br>
+    <label>Ingredients:
+        <input type="text" name="ingredients">
+        Measurements:
+        <input type="text" name="measurements">
+    </label><br>
+    <label>Instructions:
+        <input type="text" name="instructions">
+    </label><br>
+    <label>Photo Link:
+        <input type="text" name="photo">
+    </label><br>
+    <input type="submit" value="Add Cocktail">
+</form>
 
 <%- include('../partials/footer') %>

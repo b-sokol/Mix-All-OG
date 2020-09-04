@@ -1,19 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const glassSchema = new Schema(
+const commentSchema = new Schema(
   {
-    name: String,
-  },
-  {
-    timestamps: true,
-  }
-);
-
-const ingredientSchema = new Schema(
-  {
-    ingredeient: String,
-    measure: String,
+    text: { type: String, required: true },
+    user: { type: Schema.Types.ObjectId, ref: 'User' },
+    userName: String,
   },
   {
     timestamps: true,
@@ -22,13 +14,15 @@ const ingredientSchema = new Schema(
 
 const cocktailSchema = new Schema(
   {
-    name: String,
-    ingredeients: ingredientSchema,
-    alcoholType: String,
-    glassType: glassSchema,
-    recipe: String,
-    comments: [String],
-    photos: String,
+    name: { type: String, required: true, unique: true },
+    glassType: { type: String, required: true },
+    ingredients: [{ type: String, required: true }],
+    measurements: [{ type: String, required: true }],
+    instructions: { type: String, required: true },
+    photo: String,
+    comments: [commentSchema],
+    createdBy: { type: Schema.Types.ObjectId, ref: 'User' },
+    // usersFavorited: [{ type: Schema.Types.ObjectId, ref: 'User' }],
   },
   {
     timestamps: true,

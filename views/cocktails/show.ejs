@@ -1,3 +1,27 @@
 <%- include('../partials/header') %>
-
+<section id="show-page">
+    <% if(cocktail.photo === '') { %>
+    <img src="/images/image-placeholder.png" class="img-circle" width="300">
+    <% } else { %>
+    <img src="<%= cocktail.photo %>" class="img-circle" width="300">
+    <% } %>
+    <div>Cocktail Name: <%= cocktail.name %></div>
+    <div>Proper Glass: <%= cocktail.glassType %></div>
+    <div>Ingredients:
+        <% cocktail.ingredients.forEach((i) => { %>
+        <%=i%> -
+        <% }); %>
+        <% cocktail.measurements.forEach((m) => { %>
+        <%=m%>
+        <% }); %>
+    </div>
+    <div>Instructions: <%= cocktail.instructions %></div>
+    <div>Comments: <% cocktail.comments.forEach((c) => { %>
+        <%=c.text%> - <%=c.userName%>
+        <% }); %></div>
+    <form action="/cocktails/<%= cocktail._id %>/comments" method="POST">
+        <input type="text" name="text">
+        <button type="submit">ADD COMMENT</button>
+    </form>
+</section>
 <%- include('../partials/footer') %>

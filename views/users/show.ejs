@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+<section id="show-page">
+    <div>
+        <img src="<%= user.avatar%>" class="img-circle" width="300">
+    </div>
+    <div>
+        <%= user.name%>'s Cocktails:
+    </div><br>
+    <%cocktails.forEach((c) => { %>
+    <div>
+        <img src=" <%=c.photo%>" alt="<%=c.name%>">
+        <a href="/cocktails/<%=c._id%>"><%=c.name%></a>
+        <a href="/cocktails/<%=c.id%>/edit">EDIT COCKTAIL</a>
+        <form action="/cocktails/<%=c._id%>?_method=DELETE" method="POST">
+           <button type="submit">DELETE COCKTAIL</button>
+        </form>
+    </div>
+    <% })%>
+    <div>
+        <%= user.name%>'s Comments:
+    </div><br>
+    <%- include('../partials/footer') %>
