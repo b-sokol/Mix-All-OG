@@ -25,6 +25,7 @@
 ## Getting Started
 
 [Link to app](https://mix-all-og.herokuapp.com/)
+
 [Link to Trello](https://trello.com/b/0e52V8mp/mix-all-og)
 
 ## Next Steps
