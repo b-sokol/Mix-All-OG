@@ -21,6 +21,9 @@
 - MongoDB
 - Express.JS
 - Node.JS
+- Google Auth
+- Passport
+- Mongoose
 
 ## Getting Started
 
