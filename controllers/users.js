@@ -11,9 +11,13 @@ function index(req, res, next) {
 }
 
 function show(req, res, next) {
-    User.findById(req.user.id, (err, user) => {
-        Cocktail.find({ createdBy: req.user._id }, (err, cocktails) => {
-            res.render('users/show', { title: `${user.name}'s Home`, user, cocktails });
-        });
+  User.findById(req.user.id, (err, user) => {
+    Cocktail.find({ createdBy: req.user._id }, (err, cocktails) => {
+      res.render('users/show', {
+        title: `${user.name}'s Home`,
+        user,
+        cocktails,
+      });
+    });
   });
 }

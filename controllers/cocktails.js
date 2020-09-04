@@ -8,6 +8,7 @@ module.exports = {
   create,
   edit,
   delete: deleteCocktail,
+  update,
 };
 
 function index(req, res) {
@@ -31,6 +32,12 @@ function newCocktail(req, res) {
 }
 
 function create(req, res) {
+  req.body.ingredients = req.body.ingredients.replace(/\s*,\s*/g, ',');
+  if (req.body.ingredients)
+    req.body.ingredients = req.body.ingredients.split(',');
+  req.body.measurements = req.body.measurements.replace(/\s*,\s*/g, ',');
+  if (req.body.measurements)
+    req.body.measurements = req.body.measurements.split(',');
   const cocktail = new Cocktail(req.body);
   cocktail.createdBy = req.user._id;
   cocktail.save((err) => {
@@ -40,7 +47,28 @@ function create(req, res) {
       });
     User.findById(req.user._id, (err, user) => {
       user.myCocktails.push(cocktail._id);
-      user.save();
+      user.save((err) => {
+        res.redirect(`/cocktails/${cocktail._id}`);
+      });
+    });
+  });
+}
+
+function update(req, res) {
+  Cocktail.findOne({ _id: req.params.id }, (err, cocktail) => {
+    req.body.ingredients = req.body.ingredients.replace(/\s*,\s*/g, ',');
+    if (req.body.ingredients)
+      req.body.ingredients = req.body.ingredients.split(',');
+    req.body.measurements = req.body.measurements.replace(/\s*,\s*/g, ',');
+    if (req.body.measurements)
+      req.body.measurements = req.body.measurements.split(',');
+    if (req.body.name) cocktail.name = req.body.name;
+    if (req.body.glassType) cocktail.glassType = req.body.glassType;
+    if (req.body.ingredeients) cocktail.ingredeients = req.body.ingredeients;
+    if (req.body.measurements) cocktail.measurements = req.body.measurements;
+    if (req.body.instructions) cocktail.instructions = req.body.instructions;
+    if (req.body.photo) cocktail.photo = req.body.photo;
+    cocktail.save((err) => {
       res.redirect(`/cocktails/${cocktail._id}`);
     });
   });
@@ -48,7 +76,8 @@ function create(req, res) {
 
 function edit(req, res) {
   Cocktail.findById(req.params.id, (err, cocktail) => {
-    if (!cocktail.createdBy.equals(req.user._id)) return res.redirect('/cocktails');
+    if (!cocktail.createdBy.equals(req.user._id))
+      return res.redirect('/cocktails');
     res.render('cocktails/edit', { title: `edit ${cocktail.name}`, cocktail });
   });
 }

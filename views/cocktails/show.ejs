@@ -5,19 +5,21 @@
     <% } else { %>
     <img src="<%= cocktail.photo %>" class="img-circle" width="300">
     <% } %>
-    <div>Cocktail Name: <%= cocktail.name %></div>
-    <div>Proper Glass: <%= cocktail.glassType %></div>
-    <div>Ingredients:
-        <% cocktail.ingredients.forEach((i) => { %>
-        <%=i%> -
-        <% }); %>
-        <% cocktail.measurements.forEach((m) => { %>
-        <%=m%>
-        <% }); %>
+    <div><strong>Cocktail Name:</strong><br>
+         <%= cocktail.name %></div>
+    <div><strong> Proper Glass: </strong><br>
+        <%= cocktail.glassType %></div>
+    <div><strong>Ingredients:</strong><br>
+        <% for(let c = 0; c < cocktail.ingredients.length; c++) { %>
+        <%=cocktail.ingredients[c]%> - <%=cocktail.measurements[c]%> <br>
+        <% }; %>
     </div>
-    <div>Instructions: <%= cocktail.instructions %></div>
-    <div>Comments: <% cocktail.comments.forEach((c) => { %>
+    <div><strong>Instructions:</strong><br>
+         <%= cocktail.instructions %></div>
+    <div><strong>Comments:</strong><br>
+         <% cocktail.comments.forEach((c) => { %>
         <%=c.text%> - <%=c.userName%>
+        <br>
         <% }); %></div>
     <form action="/cocktails/<%= cocktail._id %>/comments" method="POST">
         <input type="text" name="text">
