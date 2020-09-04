@@ -22,6 +22,7 @@ const cocktailSchema = new Schema(
     photo: String,
     comments: [commentSchema],
     createdBy: { type: Schema.Types.ObjectId, ref: 'User' },
+    userName: String,
   },
   {
     timestamps: true,

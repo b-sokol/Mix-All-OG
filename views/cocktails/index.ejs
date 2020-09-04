@@ -5,13 +5,15 @@
         <tr>
             <th>COCKTAIL</th>
             <th>INFO</th>
+            <th>CREATED BY</th>
         </tr>
     </thead>
     <tbody>
         <% cocktails.forEach((c) => { %>
         <tr>
             <td><%= c.name %></td>
-            <td><a href="/cocktails/<%= c._id %>">INFO</a></td>
+            <td><a href="/cocktails/<%= c._id %>">RECIPE</a></td>
+            <td><%=c.userName%></td>
         </tr>
         <% }); %>
     </tbody>

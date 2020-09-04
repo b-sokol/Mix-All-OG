@@ -40,6 +40,7 @@ function create(req, res) {
     req.body.measurements = req.body.measurements.split(',');
   const cocktail = new Cocktail(req.body);
   cocktail.createdBy = req.user._id;
+  cocktail.userName = req.user.name;
   cocktail.save((err) => {
     if (err)
       return res.render('cocktails/new', {
