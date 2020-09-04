@@ -4,17 +4,17 @@
 
 ## Screen Shots
 
-![Screenshot 1](./images/screenshots/LandingPage.png)
+![Screenshot 1](../images/screenshots/LandingPage.png)
 
-![Screenshot 2](./images/screenshots/NewCocktailPage.png)
+![Screenshot 2](../images/screenshots/NewCocktailPage.png)
 
-![Screenshot 3](./images/screenshots/EditCocktailPage.png)
+![Screenshot 3](../images/screenshots/EditCocktailPage.png)
 
-![Screenshot 4](./images/screenshots/CocktailShowPage.png)
+![Screenshot 4](../images/screenshots/CocktailShowPage.png)
 
-![Screenshot 5](./images/screenshots/UserHomePage.png)
+![Screenshot 5](../images/screenshots/UserHomePage.png)
 
-![Screenshot 6](./images/screenshots/AllCocktailsPage.png)
+![Screenshot 6](../images/screenshots/AllCocktailsPage.png)
 
 ## Technologies Used
 
